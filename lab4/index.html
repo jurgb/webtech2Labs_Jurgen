@@ -6,19 +6,59 @@
 </head>
 <body>
 
-	<h1>Weer Applicatie</h1>
-	<script type="text/javascript">
+	<h1 id="header">Weer Applicatie</h1>
 
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.js"></script>
+	<script type="text/javascript">
+	$( document ).ready(function() {
+
+<<<<<<< HEAD
 		function success(position) {
   			console.log(position)
 		}
+=======
+>>>>>>> 4b8cae620195098ed1a5bb979660094a409ce9fa
 
-		function error()
-		{
-			alert("location not supported");
+		function getLocation()
+		  {
+			  if (navigator.geolocation)
+			  {
+			    navigator.geolocation.getCurrentPosition(getweather);
+			  }
+			  else
+			  {
+			  	alert("Geolocation is not supported by this browser.");
+			  }
+		  }
+
+		function getweather(position)
+			{
+			$.ajax({
+			    url: "https://api.forecast.io/forecast/f81f525822d538db855c31e5166ba31d/"+ position.coords.latitude + ","+ position.coords.longitude,
+			 
+			    // the name of the callback parameter, as specified by the YQL service
+			    jsonp: "callback",
+			 
+			    // tell jQuery we're expecting JSONP
+			    dataType: "jsonp",
+			 
+			    // tell YQL what we want and that we want JSON
+			    data: {
+			        q: "select title,abstract,url from search.news where query=\"cat\"",
+			        format: "json"
+			    },
+ 
+	    // work with the response
+	    success: function( response ) {
+	        console.log( response ); // server response
+	    	}
+		});
 		}
-		var locatie = navigator.geolocation.getCurrentPosition(success, error);
 
+		 getLocation();
+
+		 
+	});
 	</script>
 </body>
 </html>
