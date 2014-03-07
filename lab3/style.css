@@ -1,0 +1,51 @@
+body
+{
+	width: 960px;
+	margin-right: auto;
+	margin-left: auto;
+	background-color: #ccc;
+}
+
+li
+{
+	padding: 20px;
+	list-style-type: none;
+}
+
+input
+{
+	background-color: #ccc;
+	width:80%;
+	height: 30px;
+	border: none;
+}
+
+li#add-veld
+{
+	background-color: #333333 ;
+	text-align: center;
+}
+
+
+/*Alle verschillende klassen die de li's kunnen hebben*/
+
+li.priority-high
+{
+	background-color: red;
+}
+
+li.priority-medium
+{
+	background-color: orange ;
+}
+
+li.priority-low
+{
+	background-color: yellow;
+}
+
+li.done
+{
+	background-color: green;
+	text-decoration: line-through;
+}
