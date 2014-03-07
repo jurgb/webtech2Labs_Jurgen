@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<link rel="stylesheet" href="style.css">
+	<title>IMDo App</title>
+</head>
+<body>
+
+<div class="wrapper">
+	<h1>IMDo App</h1>
+
+	<ul id="todo-list">
+		<li id="add-veld"><input type="text" id="add-item-text"</li>
+		<li id="todo-item1" class="priority-high">Todo item met hoge prioriteit</li>
+		<li id="todo-item2" class="priority-medium">Todo item met medium prioriteit</li>
+		<li id="todo-item3" class="priority-low">Todo item met lage prioriteit</li>
+		<li id="todo-item4" class="done">Todo item dat klaar is</li>
+	</ul>
+</div>
+
+	<script type="text/javascript">
+
+	//Nieuw element definiëren zodat we javascript kunnen uitbreiden zonder in problemen te komen
+
+		var todoElement = function(element)
+		{
+			this.element = element;
+			this.isArray = (element.length > 1 ) ? true : false;
+		}
+
+		//functie add clas toekennen zodat we da klasse van onze Li's kunnen wijzigen door in dit geval erop te klikken
+
+		todoElement.prototype.addClass = function(p_class)
+		{
+			if(this.isArray) //Dit controleert of her niet om meerdere elementen gaat
+			{
+				for (var i = 0, j = this.element.length; i < j; i++)
+				{
+					this.element[i].className = this.element[i].className + " " + p_class;
+				};
+			}
+			else
+			{
+					this.element.className = this.element.className + " " + p_class;
+			}
+			return this;
+		}
+
+		// nieuwe functie click maken zodat het clicken op de li ervoor zorgt dat deze functie wordt uitgevoerd
+
+		todoElement.prototype.click = function(p_click)
+		{
+			if(this.isArray)
+			{
+				for(var x=0, y=this.element.length; x<y; x++)
+				{
+					this.element[x].addEventListener('click', p_click);
+				}
+			}
+			else
+			{
+				this.element.addEventListener('click', p_click);
+			}
+			return this;
+		}
+
+		// selector jQuery nabouwen
+
+		var $ = function(p_element)
+		{
+			var result;
+			var firstChar = p_element.charAt(0);
+
+			switch(firstChar)
+			{
+				case "#":
+					var idSelect = p_element.substring(1,p_element.length);
+					var element = document.getElementById(idSelect);
+					break;
+
+				case ".":
+					var classSelect = p_element.substring(1,p_element.length);
+					var element = document.getElementsByClassName(classSelect);
+					break;
+
+				default:
+					var element = document.getElementsByTagName(p_element);
+					break;
+			}
+			result =  new todoElement(element);
+			return result;
+		}
+
+		$("li").click(function(){
+			new todoElement(this).addClass("done");
+		});
+
+	</script>
+</body>
+</html>
