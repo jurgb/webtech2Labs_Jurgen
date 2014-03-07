@@ -6,6 +6,8 @@ webtech2Labs_Jurgen
 In deze repositry komen alle labs die we maken tijdens webtech2
 Per lab komt in deze file extra informatie te staan over het lab, alsook wat ik ervan heb geleerd
 
+###Indien er bij het lab een link staat, is dat de oorspronkelijke uploadfolder, de bestanden zitten ook in deze repositry
+
 ##lab 1
 link: https://github.com/jurgb/webtechweek1
 
