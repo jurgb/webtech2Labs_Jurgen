@@ -17,7 +17,6 @@
 		  {
 			  if (navigator.geolocation)
 			  {
-			    navigator.geolocation.getCurrentPosition(showPosition);
 			    navigator.geolocation.getCurrentPosition(getweather);
 			  }
 			  else
@@ -25,12 +24,6 @@
 			  	alert("Geolocation is not supported by this browser.");
 			  }
 		  }
-
-		function showPosition(position)
-			{
-		 		console.log("Latitude: " + position.coords.latitude + 
-		  		"<br>Longitude: " + position.coords.longitude); 
-			}
 
 		function getweather(position)
 			{
