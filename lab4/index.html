@@ -2,63 +2,148 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>WeatherApp</title>
+	<title>Weather app</title>
+	 <meta name = "viewport" content="width=device-width, user-scalable=no">
+	 <link rel="stylesheet" type="text/css" href="css/style.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 </head>
+
 <body>
+	<div id="wrapper">
+		<div id="datumveld"></div>
+		<img id="icoonveld" alt="Weathericon"/>
+		<div id="temperatuurveld"></div>
+		<div id="omschrijvingveld"></div>
+		<div id="minenmax"></div>
+		
+	</div>
 
-	<h1 id="header">Weer Applicatie</h1>
-
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.js"></script>
 	<script type="text/javascript">
-	$( document ).ready(function() {
+		
+		//vullen van de datum
 
-<<<<<<< HEAD
-		function success(position) {
-  			console.log(position)
-		}
-=======
->>>>>>> 4b8cae620195098ed1a5bb979660094a409ce9fa
+		var datumveld=document.getElementById('datumveld');
+		var datum = new Date().getDate()+1;
+
+		datumveld.innerHTML = "THE " + datum + "TH OF";
+		//maand moet niet +1, switch case bij 1 begonnen om het de echte nummers van de maand te geven.
+		month = new Date().getMonth()+1;
+
+		switch (month){
+			case 1:
+				datumveld.innerHTML += ' JANUARY';
+				break;
+			case 2:
+				datumveld.innerHTML += ' FEBRUARY';
+				break;
+			case 3:
+				datumveld.innerHTML += ' MARCH';
+				break;
+			case 4:
+				datumveld.innerHTML += ' APRIL';
+				break;
+			case 5:
+				datumveld.innerHTML += ' MAY';
+				break;
+			case 6:
+				datumveld.innerHTML += ' JUNE';
+				break;
+			case 7:
+				datumveld.innerHTML += ' JULY';
+				break;
+			case 8:
+				datumveld.innerHTML += ' AUGUST';
+				break;
+			case 9:
+				datumveld.innerHTML += ' SEPTEMBER';
+				break;
+			case 10:
+				datumveld.innerHTML += ' OCTOBER';
+				break;
+			case 11:
+				datumveld.innerHTML += ' NOVEMBER';
+				break;
+			case 12:
+				datumveld.innerHTML += ' DECEMBER';
+				break;
+			}
+
+
+		//Invullen van het eigenlijke weer op de huidige locatie
+
+		//velden selecteren en plaatsen in variabele
+		var temperatuur=document.getElementById('temperatuurveld');
+		var omschrijving=document.getElementById('omschrijvingveld');
+		var icoon=document.getElementById('icoonveld');
+
+		
 
 		function getLocation()
-		  {
-			  if (navigator.geolocation)
-			  {
-			    navigator.geolocation.getCurrentPosition(getweather);
-			  }
-			  else
-			  {
-			  	alert("Geolocation is not supported by this browser.");
-			  }
-		  }
-
-		function getweather(position)
+		{
+			if(navigator.geolocation)
 			{
-			$.ajax({
-			    url: "https://api.forecast.io/forecast/f81f525822d538db855c31e5166ba31d/"+ position.coords.latitude + ","+ position.coords.longitude,
-			 
-			    // the name of the callback parameter, as specified by the YQL service
-			    jsonp: "callback",
-			 
-			    // tell jQuery we're expecting JSONP
-			    dataType: "jsonp",
-			 
-			    // tell YQL what we want and that we want JSON
-			    data: {
-			        q: "select title,abstract,url from search.news where query=\"cat\"",
-			        format: "json"
-			    },
- 
-	    // work with the response
-	    success: function( response ) {
-	        console.log( response ); // server response
-	    	}
-		});
+	    		navigator.geolocation.getCurrentPosition(bepaalweer);
+			}
+			else
+			{
+				alert("Geolocation is not supported by this browser.");
+			}
 		}
 
-		 getLocation();
+	  	function bepaalweer(position){
+	  		$.ajax({
+	  			url:"https://api.forecast.io/forecast/fdf5192dc63b2ad72fdf72ed10a9cb1d/" + position.coords.latitude + "," + position.coords.longitude,
+	  			dataType:"jsonp",
+				success: function(response) {
+					temperatuur.innerHTML = Math.round((response.hourly.data[24].temperature - 32)/1.8) + " <strong>&degC</strong>"; //temperatuur van volgende dag halen (24 uur later dan het huidige uur)
+					omschrijving.innerHTML = response.daily.data[1].summary; //algemene omschrijving van volgende dag halen
+					minenmax.innerHTML = "Min: " + Math.round((response.daily.data[1].temperatureMin-32)/1.8) + " &degC" + "   " + "Max: " + Math.round((response.daily.data[1].temperatureMax-32)/1.8)+ " &degC";
 
-		 
-	});
+					console.log(response);
+					var i = response.hourly.data[24].icon; //loopen over verschillende iconen
+					switch(i){
+						case "clear-day":
+							icoon.src="http://www.iconsdb.com/icons/preview/black/sun-xxl.png";
+							break;
+
+						case "clear-night":
+							icoon.src="http://www.iconsdb.com/icons/preview/black/moon-xxl.png";
+							break;
+
+						case "partly-cloudy-day":
+							icoon.src="http://www.iconsdb.com/icons/preview/black/partly-cloudy-day-xxl.png";
+
+						case "partly-cloudy-night":
+							icoon.src="http://www.iconsdb.com/icons/preview/black/partly-cloudy-night-xxl.png";
+							break;
+
+						case "wind":
+							icoon.src="http://www.iconsdb.com/icons/preview/black/little-rain-xxl.png";
+							break;
+
+						case "rain":
+							icoon.src="http://www.iconsdb.com/icons/preview/black/rainy-weather-xxl.png";
+							break;
+
+						case "sleet":
+							icoon.src="http://www.iconsdb.com/icons/preview/black/sleet-xxl.png";
+							break;
+
+						case "snow":
+							icoon.src="http://www.iconsdb.com/icons/preview/black/snow-xxl.png";
+							break;
+
+						case "fog":
+							icoon.src="http://www.iconsdb.com/icons/preview/black/fog-day-xxl.png";
+							break;
+
+						default:
+							icoon.src="http://www.iconsdb.com/icons/preview/black/clouds-xxl.png";
+					}
+	   			}
+			});
+	 	}
+	 	getLocation();
 	</script>
 </body>
 </html>
