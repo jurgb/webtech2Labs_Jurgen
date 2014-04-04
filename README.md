@@ -37,3 +37,5 @@ Lab 6 was de moeilijkste van allemaal, de node.js app
 In het begin super onduidelijk maar nu ik het principe snap begrijp ik dat je hiermee magische dingen kan maken.
 Facebook, chatroullette, strawpoll, enzovoort
 deze kan ik nu allemaal na gaan maken (of misschien zelfs verbeteren wie weet)
+
+Deze lab is nog niet volledig klaar omdat ik hier en daar op problemen stootte zoals vb het aanpassen van de fontsize
