@@ -1,0 +1,21 @@
+.container{
+	width: 700px;
+}
+
+a{
+	color:#22313F;
+	font-weight: bold;
+}
+
+h2{
+	font-size: 5em;
+	color: black;
+}
+
+.bottom{
+	margin-bottom: 15px ;
+}
+
+.bottom2{
+	margin-bottom: 30px;
+}

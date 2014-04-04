@@ -1,0 +1,21 @@
+extends layout
+
+block content
+
+  div(id="bestquestions")
+    h1 Top questions:
+   
+  
+  script.
+    var client = new Faye.Client('/faye',{
+     timeout: 20
+    });
+
+    client.subscribe('/channel', function(message) {
+     $('#bestquestions').append('<p href="#" class="topquestion">' + message.text + '</p>' + '</br>');
+     $('.topquestion').click(function() {
+        $(this).remove()
+      });
+    });
+
+    

@@ -1,0 +1,42 @@
+extends layout
+
+block content
+  
+  div(id='wrapper')
+      div(id="questionpart")
+        h1(class="hoofdtitel") Ask your question here:
+        textarea(rows="3", cols="35", id="chat")
+        a(href='#', id='send') Ask!
+      div(id="messages")
+        h1(class="hoofdtitel") All questions asked:
+        h2(class="hoofdtitel") klik op de vraag om deze te up-voten
+
+  script.
+    var client = new Faye.Client('/faye',{
+     timeout: 20
+    });
+    
+    client.subscribe('/channel', function(message) {
+     $('#messages').append('<a href="#" class="question">' + message.text + '</a>' + '</br>');
+
+      $('.question').click(function() {
+       var test = $(this)
+       console.log(test)
+      
+      });
+     
+      return false;
+    });
+
+    var $chat = $('#chat');
+    $('#send').click(function() {
+
+     client.publish('/channel', {
+      text: $chat.val()
+     });
+    
+     $chat.val('');
+     return false;
+    });
+
+    

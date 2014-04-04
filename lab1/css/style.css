@@ -1,0 +1,67 @@
+body {
+
+width:960px;
+margin-left:auto;
+margin-right:auto;
+background-color:#EADBBE;
+font-family:Arial;
+
+
+
+}
+
+nav {
+
+width:960px;
+height:50px;
+background-color:#EDCC85;
+}
+
+nav li {
+
+width:230px;
+height:50px;
+float:left;
+list-style:none;
+font-weight:bold;
+margin-top:20px;
+}
+nav li a {
+
+color:#593C1A;
+text-decoration:none;
+
+}
+
+h1,h2 {
+
+color:#593C1A;
+
+}
+
+img {
+
+border-radius:20px;
+
+}
+
+#ingredienten ul li {
+
+color:#593C1A;
+
+}
+
+#bereiding  p{
+
+color:#593C1A;
+
+}
+
+#bereiding {
+
+padding: 10 10 10 10;
+
+
+}
+
+

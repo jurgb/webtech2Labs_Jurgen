@@ -1,0 +1,67 @@
+/*css bestand voor opdracht 1 css animaties*/
+
+
+/* de ballen kleuren/vormen */
+#geleBal
+{
+	width: 40px;
+	height: 40px;
+	border-radius: 40px;	
+	position: absolute;
+	background-color: yellow;	
+}
+
+#groeneBal
+{
+	width: 40px;
+	height: 40px;
+	border-radius: 40px;	
+	position: absolute;
+	background-color: green;	
+}
+
+#rodeBal
+{
+	width: 40px;
+	height: 40px;
+	border-radius: 40px;
+	position: absolute;
+	background-color: red;	
+}
+
+/*animatie van de ballen*/
+.verplaats1
+{
+	-webkit-animation: beweeg1 0.5s;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-transform-origin: left top;
+}
+
+.verplaats2
+{
+	-webkit-animation: beweeg2 0.5s;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-transform-origin: left top;
+}
+
+.verplaats3
+{
+	-webkit-animation: beweeg3 0.5s;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-transform-origin: left top;
+}
+
+@-webkit-keyframes beweeg1
+{
+	100% {-webkit-transform: translateX(100px)}
+}
+
+@-webkit-keyframes beweeg2
+{
+	100% {-webkit-transform: translateX(100px) translateY(100px)}
+}
+
+@-webkit-keyframes beweeg3
+{
+	100% {-webkit-transform: translateY(100px)}
+}
