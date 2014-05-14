@@ -1,67 +1,45 @@
-body 
-{
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
-a 
-{
-  color: #00B7FF;
-}
+#wrapper {
+  width: 980px;
+  margin-left: auto;
+  margin-right: auto; }
 
-#wrapper
-{
-	width: 980px;
-	margin-left: auto;
-	margin-right: auto;
-}
-#messages
-{
-	width: 600px;
-	text-align: center;
-	float: left;
-}
-#bestquestions
-{
-	width: 700px;
-	text-align: center;
-	margin-left: auto;
-	margin-right: auto;
-	color: #2C997A;
-}
+a {
+  color: #00b7ff; }
 
-#questionpart
-{
-	width: 360px;
-	float: right;
-	margin-top: 50px;
-}
-#chat
-{
-	border: 1px solid #2C997A;
-}
+.hoofdtitel {
+  color: #2c997a; }
 
-#send
-{
-	padding: 10px;
-	background-color: #2C997A;
-	border-radius: 10px;
-	margin-left: 20px;
-}
+#bestquestions {
+  width: 700px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  color: #2C997A; }
 
-.hoofdtitel
-{
-	color: #2C997A;
-}
+#questionpart {
+  width: 360px;
+  float: right;
+  margin-top: 50px; }
+
+#chat {
+  border: 1px solid #2C997A; }
+
+#send {
+  padding: 10px;
+  background-color: #2C997A;
+  border-radius: 10px;
+  margin-left: 20px; }
 
 .topquestion,
-.question
-{
-	text-decoration: none;
-	width: 100%;
-	padding-top: 5px;
-	padding-bottom: 5px;
-	background-color: #2C997A;
-	color: #FFF;
-	text-align: center;
-	display: block;
-}
+.question {
+  text-decoration: none;
+  width: 100%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: #2C997A;
+  color: #FFF;
+  text-align: center;
+  display: block; }

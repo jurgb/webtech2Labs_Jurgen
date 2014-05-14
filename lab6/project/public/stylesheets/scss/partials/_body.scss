@@ -1,0 +1,46 @@
+$linkcolor: #00B7FF;
+$greencolor: #2C997A;
+
+a {
+	color: $linkcolor;
+}
+
+.hoofdtitel {
+	color: $greencolor;
+}
+
+#bestquestions{
+	width: 700px;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	color: #2C997A;
+}
+
+#questionpart{
+	width: 360px;
+	float: right;
+	margin-top: 50px;
+}
+#chat{
+	border: 1px solid #2C997A;
+}
+
+#send{
+	padding: 10px;
+	background-color: #2C997A;
+	border-radius: 10px;
+	margin-left: 20px;
+}
+
+.topquestion,
+.question{
+	text-decoration: none;
+	width: 100%;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	background-color: #2C997A;
+	color: #FFF;
+	text-align: center;
+	display: block;
+}
