@@ -13,7 +13,7 @@ var path = require('path');
 //db vars
 var mongo = require('mongodb');
 var monk = require('monk');
-var db = monk('mongodb://jurgb:1308JuBa@oceanic.mongohq.com:10059/imdwall');
+var db = monk('mongodb://admin:azerty@oceanic.mongohq.com:10059/imdwall');
 
 //faye server variabelen&
 var bayeux = new faye.NodeAdapter({
@@ -47,9 +47,10 @@ if ('development' == app.get('env')) {
 app.get('/', routes.index);
 app.get('/scoreboard', routes.scoreboard);
 app.get('/users', user.list);
+app.get('/newuser', routes.newuser);
 
 //pages POST
+app.post('/newuser', routes.adduser(db));
 
-
-server.listen(3000);
+server.listen(process.env.PORT ||3000);
 console.log("App launched on port 3000");
