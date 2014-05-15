@@ -1,0 +1,51 @@
+form#formLogin
+{
+	background-color: lighten($greencolor, 50%);
+	padding: 30px;
+	border-radius:30px;
+	width: 300px;
+	display: inline-block;
+	float:right;
+	margin-top: 10px;
+	border: 2px $greencolor solid;
+
+	label
+	{
+		width: 100%;
+		display: block;
+		text-align:center;
+	}
+	.errors
+	{
+	  @extend label;
+	  font-size: 14px;
+	  color: #ad3030;
+	  background-color: #edb5b5;
+	  border: 1px solid #d58585;
+	  padding: 15px;
+	  width: 90%;
+	  margin-top: 5px;
+	  margin-bot: 5px;
+	}
+	input
+	{
+		width: 70%;
+		text-align: left;
+		display:block;
+		margin-left:auto;
+		margin-right:auto;
+	}
+	button
+	{
+		float:right;
+		margin-right: 20px;
+	}
+}
+form#formAdmin, form#formAddUser
+{
+	@extend form#formLogin;
+	float:none;
+	margin-left:auto;
+	margin-right:auto;
+	display:block;
+}

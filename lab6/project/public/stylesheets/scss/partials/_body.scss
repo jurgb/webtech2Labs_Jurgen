@@ -1,10 +1,16 @@
-$linkcolor: #00B7FF;
-$greencolor: #2C997A;
-
 a {
 	color: $linkcolor;
 }
+h1#titel
+{	
+	@extend #wrapper;
+	font-size: $defaultfontsize + 6px;
+	text-align: center;
+	margin-top: 5px;
+	margin-bot: 5px;
+	color: $greencolor;
 
+}
 .hoofdtitel {
 	color: $greencolor;
 }
@@ -15,6 +21,7 @@ a {
 	margin-left: auto;
 	margin-right: auto;
 	color: #2C997A;
+	margin-top: 10px;
 }
 
 #questionpart{
@@ -49,4 +56,5 @@ a {
 	width: 600px;
 	text-align: center;
 	float: left;
+	margin-top: 10px;
 }

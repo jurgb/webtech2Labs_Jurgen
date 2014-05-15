@@ -1,11 +1,19 @@
 extends layout
 
 block content
+  div#wrapper
+    -if(username)
+      h1#titel Top questions:
+      div(id="bestquestions")
+    -else
+      form#formAdmin(name="login",method="post",action="/scoreboard")
+        label login as admin to use this page
+        -if(errors)
+          label(class="errors")= errors
+        input#inputUserName(type="text", placeholder="Username", name="username")
+        input#inputPassword(type="password", placeholder="Password", name="password")
+        button#btnSubmit(type="submit") submit
 
-  div(id="bestquestions")
-    h1 Top questions:
-   
-  
   script.
     var client = new Faye.Client('/faye',{
      timeout: 20

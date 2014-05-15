@@ -1,21 +1,40 @@
 extends layout
 
+
 block content
-  
   div(id='wrapper')
-      div(id="questionpart")
-        h1(class="hoofdtitel") Ask your question here:
-        textarea(rows="3", cols="35", id="chat")
-        a(href='#', id='send') Ask!
+      -if(username)
+        div#welcome
+          h1#titel= 'welcome ' + username +'!'
+        div(id="questionpart")
+          h1(class="hoofdtitel") Ask your question here:
+          textarea(rows="3", cols="35", id="chat")
+          a(href='#', id='send') Ask!
+      -else
+        -if(errors)
+          p(class="errors")= errors 
+        form#formLogin(name="login",method="post",action="/index")
+          label login to ask a question
+          input#inputUserName(type="text", placeholder="Username", name="username")
+          input#inputPassword(type="password", placeholder="Password", name="password")
+          button#btnSubmit(type="submit") submit
       div(id="messages")
         h1(class="hoofdtitel") All questions asked:
-        h2(class="hoofdtitel") klik op de vraag om deze te up-voten
 
   script.
     var client = new Faye.Client('/faye',{
      timeout: 20
     });
+    var $chat = $('#chat');
+    $('#send').click(function() {
+
+     client.publish('/channel', {
+      text: $chat.val()
+     });
     
+     $chat.val('');
+     return false;
+    });
     client.subscribe('/channel', function(message) {
      $('#messages').append('<a href="#" class="question">' + message.text + '</a>' + '</br>');
 
@@ -27,16 +46,3 @@ block content
      
       return false;
     });
-
-    var $chat = $('#chat');
-    $('#send').click(function() {
-
-     client.publish('/channel', {
-      text: $chat.val()
-     });
-    
-     $chat.val('');
-     return false;
-    });
-
-    

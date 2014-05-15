@@ -1,0 +1,27 @@
+#logo
+{
+	text-align: center;
+}
+nav
+{
+	max-width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+
+	.navlink{
+		width: 45%;
+		text-align:center;
+		display:inline-block;
+		background-color: $greencolor;
+		color: white;
+		margin-left: 5px;
+		margin-right: 5px;
+		padding: 5px;
+		text-decoration: none;
+	}
+
+	.navlink:hover{
+		color: $imdrood;
+	} 
+}
+
