@@ -38,4 +38,6 @@ In het begin super onduidelijk maar nu ik het principe snap begrijp ik dat je hi
 Facebook, chatroullette, strawpoll, enzovoort
 deze kan ik nu allemaal na gaan maken (of misschien zelfs verbeteren wie weet)
 
-Deze lab is nog niet volledig klaar omdat ik hier en daar op problemen stootte zoals vb het aanpassen van de fontsize
+Het moeilijkste aan dit was her feit dat alles zo anders is dan "gewone" code, het aanpassen van html naar jade viel op zich nog mee maar dan de scripts schrijven en ajax calls maken is me niet echt gelukt, de ajax call initialiseren lukte nog wel maar de gewenste gegevens ophalen etc lukte echter niet.
+
+toch heb ik geprobeerd een project af te leveren dat gebruik zou kunnen worden (dit echter zonder een databank -> lokaal dus)
